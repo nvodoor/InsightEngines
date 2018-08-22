@@ -1,0 +1,50 @@
+#top {
+    z-index: 4;
+    background-color: #212342;
+    color: white;
+    width: 10%;
+    height: 5%;
+}
+
+
+.header {
+    display: flex;
+    width: 100%;
+    height: 10%;
+    background-color: #212342;
+    color: white;
+    position: sticky;
+}
+
+#hamburger {
+    display: none;
+}
+
+.header > h1 {
+    margin-left: 40%;
+}
+
+@media (max-width: 610px) {
+    #top {
+        display: none;
+    }
+
+    #hamburger {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        padding-top: 20px;
+    }
+
+    #hamburger span {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+    }
+}
