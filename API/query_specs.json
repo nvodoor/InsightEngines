@@ -1,0 +1,129 @@
+{
+    "traffic": {
+        "datamodels": [
+            [
+                "Network Traffic",
+                "All Traffic"
+            ]
+        ],
+        "date_filters": [
+            [
+                "-4h",
+                "now"
+            ]
+        ]
+    },
+    
+    "logins to infected machines": {
+        "datamodels": [
+            [
+                "Authentication",
+                "Authentication"
+            ],
+            [
+                "Malware",
+                "Malware Attacks"
+            ]
+        ],
+        "date_filters": [
+            [
+                "-24h",
+                "now"
+            ]
+        ],
+        "filters": {
+            "other": {
+                "and": true,
+                "values": [
+                    "Authentication.action=success",
+                    "Malware_Attacks.action=allowed"
+                ]
+            }
+        }
+    },
+    
+    "cisco traffic": {
+        "datamodels": [
+            [
+                "Network Traffic",
+                "All Traffic"
+            ]
+        ],
+        "date_filters": [
+            [
+                "-4h",
+                "now"
+            ]
+        ],
+        "sourcetypes_filter": "cisco:*"
+    },
+    
+    "intrusion attacks from outside the US": {
+        "datamodels": [
+            [
+                "Intrusion Detection",
+                "IDS Attacks"
+            ]
+        ],
+        "date_filters": [
+            [
+                "-24h",
+                "now"
+            ]
+        ],
+        "filters": {
+            "location": [
+                [
+                    "Country",
+                    "NOT US"
+                ],
+                [
+                    "Country",
+                    "NOT United States"
+                ],
+                [
+                    "Country",
+                    "NOT USA"
+                ]
+            ],
+            "src": {
+                "and": true,
+                "values": [
+                    "NOT 127.0.0.1/32",
+                    "NOT 10.0.0.0/8",
+                    "NOT 172.16.0.0/12",
+                    "NOT 192.168.0.0/16",
+                    "NOT 127.0.0.2/32"
+                ]
+            }
+        }
+    },
+    
+    "avg cpu load last week vs normal": {
+        "datamodels": [
+            [
+                "Performance",
+                "CPU"
+            ]
+        ],
+        "date_filters": [
+            [
+                "02/20/2017:00:00:00",
+                "02/27/2017:00:00:00"
+            ],
+            [
+                "12/22/2016:00:00:00",
+                "02/20/2017:00:00:00"
+            ]
+        ],
+        "field_errors": {
+            "datamodels": [
+                {
+                    "invalid": [
+                        "Performance"
+                    ]
+                }
+            ]
+        }
+    }
+}
