@@ -15,6 +15,16 @@ class CPU extends Component {
         field_error: 'None'
     }
 
+    // for mobile
+    componentDidMount () {
+
+        if (window.outerWidth <= 610) {
+            const nav = document.getElementsByClassName('navi')
+            nav[0].style.display = "none"
+        }
+
+    }
+
     handleUpdate = (e) => {
         if (e.target.name === 'datamodel') {
             this.setState ({
